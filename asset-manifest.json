@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/secim-haritasi/static/css/main.005f510b.chunk.css",
+    "main.css": "/secim-haritasi/static/css/main.ffe29f1c.chunk.css",
     "main.js": "/secim-haritasi/static/js/main.871ac4a2.chunk.js",
     "main.js.map": "/secim-haritasi/static/js/main.871ac4a2.chunk.js.map",
     "runtime~main.js": "/secim-haritasi/static/js/runtime~main.a18b7624.js",
@@ -8,8 +8,8 @@
     "static/js/2.33b32cc8.chunk.js": "/secim-haritasi/static/js/2.33b32cc8.chunk.js",
     "static/js/2.33b32cc8.chunk.js.map": "/secim-haritasi/static/js/2.33b32cc8.chunk.js.map",
     "index.html": "/secim-haritasi/index.html",
-    "precache-manifest.f142463ffb7a86f711f993ba8a92d210.js": "/secim-haritasi/precache-manifest.f142463ffb7a86f711f993ba8a92d210.js",
+    "precache-manifest.f73033a731238f6d140c9e2462359515.js": "/secim-haritasi/precache-manifest.f73033a731238f6d140c9e2462359515.js",
     "service-worker.js": "/secim-haritasi/service-worker.js",
-    "static/css/main.005f510b.chunk.css.map": "/secim-haritasi/static/css/main.005f510b.chunk.css.map"
+    "static/css/main.ffe29f1c.chunk.css.map": "/secim-haritasi/static/css/main.ffe29f1c.chunk.css.map"
   }
 }
