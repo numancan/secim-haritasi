@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Map from './components/Map';
+import Detail from './components/Detail';
+import { ProvinceProvider } from './ProvinceContext';
+import GeneralResult from './components/GeneralResult';
+import styles from './App.module.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProvinceProvider>
+      <div className={styles.container}>
+        <GeneralResult />
+        <Map />
+      </div>
+      <Detail />
+    </ProvinceProvider>
   );
-}
+};
 
 export default App;

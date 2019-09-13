@@ -1,0 +1,23 @@
+.title {
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.totalVote {
+  text-align: center;
+  padding-top: 6px;
+}
+
+.container {
+  width: 26vw;
+  max-width: 380px;
+  padding: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 60vw;
+    max-width: none;
+    order: 2;
+  }
+}

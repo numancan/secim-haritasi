@@ -1,0 +1,35 @@
+.container {
+  position: absolute;
+  background: rgb(240, 239, 239);
+  border-radius: 15px;
+  width: 65vw;
+  height: 70vh;
+  overflow-y: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  text-align: center;
+}
+
+.btnExit {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  background: rgb(212, 79, 79);
+  padding: 8px;
+  color: whitesmoke;
+  filter: drop-shadow();
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}

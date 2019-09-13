@@ -1,0 +1,61 @@
+.container {
+  flex: 2;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.btnDifference {
+  float: right;
+  margin-right: 20px;
+  padding: 8px;
+  background: wheat;
+  border: 0;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.box {
+  width: 32px;
+  height: 12px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+.holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gradientBar {
+  min-width: 140px;
+  height: 12px;
+  margin: 0 12px;
+  background-image: linear-gradient(
+    to right,
+    hsl(207, 37%, 30%),
+    hsl(207, 37%, 75%)
+  );
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: none;
+    width: 100vw;
+    order: 1;
+  }
+}
