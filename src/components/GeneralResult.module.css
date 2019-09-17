@@ -1,3 +1,10 @@
+.container {
+  width: 26vw;
+  max-width: 380px;
+  padding: 2%;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .title {
   text-align: center;
   padding-bottom: 12px;
@@ -5,19 +12,23 @@
 
 .totalVote {
   text-align: center;
-  padding-top: 6px;
+  padding: 6px 0;
 }
 
-.container {
-  width: 26vw;
-  max-width: 380px;
-  padding: 2%;
+.chart {
+  max-width: 250px;
+  margin: auto;
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    width: 60vw;
+    width: 100vw;
     max-width: none;
     order: 2;
+    border: 0;
+  }
+
+  .title {
+    font-size: 28px;
   }
 }

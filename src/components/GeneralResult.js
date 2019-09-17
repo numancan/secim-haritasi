@@ -6,7 +6,7 @@ import data from '../data/secim.json';
 import Bar from './Bar.js';
 
 const GeneralResult = () => {
-  let totalPartysVotes = { 'AK Parti': 0, CHP: 0, MHP: 0, Other: 0 };
+  let totalPartysVotes = { 'AK Parti': 0, CHP: 0, MHP: 0, Diger: 0 };
   const [chartData, setChartData] = useState();
 
   const totalVote = data
@@ -18,7 +18,7 @@ const GeneralResult = () => {
     province.results.forEach(({ name, voteCount }) => {
       if (Object.keys(totalPartysVotes).includes(name))
         totalPartysVotes[name] += parseInt(voteCount);
-      else totalPartysVotes.Other += parseInt(voteCount);
+      else totalPartysVotes.Diger += parseInt(voteCount);
     });
   });
 
@@ -27,6 +27,7 @@ const GeneralResult = () => {
       <h2 className={styles.title}>Türkiye Geneli</h2>
 
       <PieChart
+        className={styles.chart}
         data={Object.entries(totalPartysVotes).map(party => ({
           title: party[0],
           value: party[1],
