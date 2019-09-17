@@ -1,4 +1,4 @@
-const map = (x, inMin, inMax, outMin, outMax) => {
+const scale = (x, inMin, inMax, outMin, outMax) => {
   return ((x - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 };
 
@@ -19,7 +19,7 @@ export const getPartysColor = (id, difference) => {
     DSP: '#3dc1d3'
   };
 
-  if (difference) return `hsl(207, 37%, ${map(difference, 0, 100, 85, 20)}%)`;
+  if (difference) return `hsl(207, 37%, ${scale(difference, 0, 100, 85, 20)}%)`;
   else return colors[id] || '#d1d8e0';
 };
 
