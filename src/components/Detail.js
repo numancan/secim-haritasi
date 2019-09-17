@@ -11,20 +11,19 @@ const Detail = () => {
     setProvince('');
   };
 
-  const createBars = () => {
-    return province.results.map(({ voteCount, name }) => {
-      const votePercent = calcPercent(voteCount, sumOf(province.results));
-      const color = getPartysColor(name);
+  const createBar = ({ name, id, voteCount }) => {
+    const votePercent = calcPercent(voteCount, sumOf(province.results));
+    const color = getPartysColor(name);
 
-      return (
-        <Bar
-          name={name}
-          color={color}
-          voteCount={formatNumber(voteCount)}
-          votePercent={votePercent}
-        />
-      );
-    });
+    return (
+      <Bar
+        key={id}
+        name={name}
+        color={color}
+        voteCount={formatNumber(voteCount)}
+        votePercent={votePercent}
+      />
+    );
   };
 
   return province ? (
@@ -33,7 +32,7 @@ const Detail = () => {
       <div className={styles.container}>
         <h1 className={styles.title}>{province.name}</h1>
 
-        {createBars()}
+        {province.results.map(result => createBar(result))}
 
         <button className={styles.btnExit} onClick={closeDetail}>
           CLOSE
