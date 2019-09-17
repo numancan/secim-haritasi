@@ -6,19 +6,21 @@ import data from '../data/secim.json';
 import Bar from './Bar.js';
 
 const GeneralResult = () => {
-  let totalPartysVotes = { 'AK Parti': 0, CHP: 0, MHP: 0 };
+  let totalPartysVotes = { 'AK Parti': 0, CHP: 0, MHP: 0, Other: 0 };
   const [chartData, setChartData] = useState();
 
   const totalVote = data
-    .map(province => {
-      province.results.forEach(({ name, voteCount }) => {
-        if (Object.keys(totalPartysVotes).includes(name))
-          totalPartysVotes[name] += parseInt(voteCount);
-      });
-
-      return sumOf(province.results);
-    })
+    .map(province => sumOf(province.results))
     .reduce((a, b) => a + b, 0);
+
+  // Calculate partys' vote
+  data.forEach(province => {
+    province.results.forEach(({ name, voteCount }) => {
+      if (Object.keys(totalPartysVotes).includes(name))
+        totalPartysVotes[name] += parseInt(voteCount);
+      else totalPartysVotes.Other += parseInt(voteCount);
+    });
+  });
 
   return (
     <div className={styles.container}>
