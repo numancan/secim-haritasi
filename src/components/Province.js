@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { ProvinceContext } from '../ProvinceContext';
 import { getPartysColor, sumOf, calcPercent } from '../helpers';
 import provincesPath from '../data/provincesPath.json';
@@ -8,23 +8,20 @@ const Province = ({ province, isDiffShowing, appendActiveProvinces }) => {
   const { setProvince } = useContext(ProvinceContext);
   const { name, results, id } = province;
   const pathToBeDrawn = provincesPath[id - 1];
-  let difference;
 
-  results.sort((a, b) => b.voteCount - a.voteCount);
-  const firstProvince = results[0];
-  appendActiveProvinces(firstProvince.name);
+  const sortResults = () => results.sort((a, b) => b.voteCount - a.voteCount);
+  const sortedResult = useMemo(sortResults, []);
 
-  if (isDiffShowing) {
-    const {
-      0: { voteCount: firstProvinceCount },
-      1: { voteCount: secondProvinceCount }
-    } = results;
+  const { 0: firstProvince, 1: secondProvince } = sortedResult;
 
-    difference = calcPercent(
-      firstProvinceCount - secondProvinceCount,
-      sumOf(results)
+  const difference = () =>
+    isDiffShowing &&
+    calcPercent(
+      firstProvince.voteCount - secondProvince.voteCount,
+      sumOf(sortedResult)
     );
-  }
+
+  appendActiveProvinces(firstProvince.name);
 
   const handleClick = () => {
     setProvince(province);
@@ -35,7 +32,7 @@ const Province = ({ province, isDiffShowing, appendActiveProvinces }) => {
       className={styles.province}
       onClick={handleClick}
       id={name}
-      style={{ fill: getPartysColor(firstProvince.name, difference) }}
+      style={{ fill: getPartysColor(firstProvince.name, difference()) }}
     >
       <path d={pathToBeDrawn} />
     </g>
