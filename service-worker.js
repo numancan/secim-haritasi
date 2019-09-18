@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/secim-haritasi/precache-manifest.b6ce8a4948e8b50affc852ad634ac1ee.js"
+  "/secim-haritasi/precache-manifest.2f9c5790b83525dda09d5f0f4522f4aa.js"
 );
 
 self.addEventListener('message', (event) => {
