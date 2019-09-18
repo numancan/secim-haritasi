@@ -7,7 +7,7 @@ import styles from './App.module.css';
 
 const App = () => {
   return (
-    <ProvinceProvider className="helo">
+    <ProvinceProvider>
       <div className={styles.container}>
         <GeneralResult />
         <Map />
