@@ -28,11 +28,7 @@ const Detail = () => {
 
   return province ? (
     <React.Fragment>
-      <div
-        className={styles.overlay}
-        style={{ height: `${document.body.scrollHeight}px` }}
-        onClick={closeDetail}
-      />
+      <div className={styles.overlay} onClick={closeDetail} />
       <div className={styles.container}>
         <h1 className={styles.title}>{province.name}</h1>
 
