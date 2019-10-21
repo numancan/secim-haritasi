@@ -1,8 +1,14 @@
-import React, { useContext } from 'react';
-import { ProvinceContext } from '../ProvinceContext';
-import { getPartysColor, calcPercent, sumOf, formatNumber } from '../helpers';
+import React, { useContext, Fragment } from 'react';
 import styles from './Detail.module.css';
-import Bar from './Bar';
+
+import { ProvinceContext } from '../../ProvinceContext';
+import Bar from '../Bar/Bar';
+import {
+  getPartysColor,
+  calcPercent,
+  sumOf,
+  formatNumber
+} from '../../helpers';
 
 const Detail = () => {
   const { province, setProvince } = useContext(ProvinceContext);
@@ -27,7 +33,7 @@ const Detail = () => {
   };
 
   return province ? (
-    <React.Fragment>
+    <Fragment>
       <div className={styles.overlay} onClick={closeDetail} />
       <div className={styles.container}>
         <h1 className={styles.title}>{province.name}</h1>
@@ -38,10 +44,8 @@ const Detail = () => {
           CLOSE
         </button>
       </div>
-    </React.Fragment>
-  ) : (
-    ''
-  );
+    </Fragment>
+  ) : null;
 };
 
 export default Detail;

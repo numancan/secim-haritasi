@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { getPartysColor } from '../helpers.js';
-import data from '../data/secim.json';
-import styles from './Map.module.css';
-import Province from './Province';
+import styles from './ResultSection.module.css';
 
-const Map = () => {
+import { getPartysColor } from '../../helpers.js';
+
+import Map from '../Map/Map';
+
+const ResultSection = () => {
   const [isDiffShowing, setIsDiffShowing] = useState(false);
   const [activeProvinces, setActiveProvinces] = useState([]);
-
-  const handleClick = () => {
-    setIsDiffShowing(!isDiffShowing);
-  };
 
   const appendActiveProvinces = provinceName => {
     if (!activeProvinces.includes(provinceName))
@@ -19,33 +16,23 @@ const Map = () => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.btnDifference} onClick={handleClick}>
+      <button
+        className={styles.btnDifference}
+        onClick={() => setIsDiffShowing(!isDiffShowing)}
+      >
         {isDiffShowing ? 'Genel Sonucu Goster' : 'Farki Goster'}
       </button>
+
       <div>
-        {/* https://github.com/dnomak/svg-turkiye-haritasi */}
-        <svg
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 1007.478 527.323"
-          xmlSpace="preserve"
-        >
-          <g>
-            {data.map(province => (
-              <Province
-                key={province.id}
-                province={province}
-                isDiffShowing={isDiffShowing}
-                appendActiveProvinces={appendActiveProvinces}
-              />
-            ))}
-          </g>
-        </svg>
+        <Map
+          appendActiveProvinces={appendActiveProvinces}
+          isDiffShowing={isDiffShowing}
+        />
 
         {isDiffShowing ? (
           <div className={styles.holder}>
-            <span>Fark Fazla</span> <div className={styles.gradientBar}></div>{' '}
+            <span>Fark Fazla</span>
+            <div className={styles.gradientBar}></div>
             <span>Fark Az</span>
           </div>
         ) : (
@@ -68,4 +55,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default ResultSection;

@@ -1,8 +1,9 @@
 import React, { useContext, useMemo } from 'react';
-import { ProvinceContext } from '../ProvinceContext';
-import { getPartysColor, sumOf, calcPercent } from '../helpers';
-import provincesPath from '../data/provincesPath.json';
 import styles from './Province.module.css';
+
+import { getPartysColor, sumOf, calcPercent } from '../../helpers';
+import { ProvinceContext } from '../../ProvinceContext';
+import provincesPath from '../../data/provincesPath.json';
 
 const Province = ({ province, isDiffShowing, appendActiveProvinces }) => {
   const { setProvince } = useContext(ProvinceContext);
@@ -23,14 +24,10 @@ const Province = ({ province, isDiffShowing, appendActiveProvinces }) => {
 
   appendActiveProvinces(firstProvince.name);
 
-  const handleClick = () => {
-    setProvince(province);
-  };
-
   return (
     <g
       className={styles.province}
-      onClick={handleClick}
+      onClick={() => setProvince(province)}
       id={name}
       style={{ fill: getPartysColor(firstProvince.name, difference()) }}
     >

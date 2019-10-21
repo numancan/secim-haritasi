@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { sumOf, getPartysColor, round, formatNumber } from '../helpers';
-import PieChart from 'react-minimal-pie-chart';
 import styles from './GeneralResult.module.css';
-import data from '../data/secim.json';
-import Bar from './Bar.js';
+import data from '../../data/secim.json';
+
+import { sumOf, getPartysColor, round, formatNumber } from '../../helpers';
+
+import Bar from '../Bar/Bar';
+import PieChart from 'react-minimal-pie-chart';
 
 const GeneralResult = () => {
   let totalPartysVotes = { 'AK Parti': 0, CHP: 0, MHP: 0, Diger: 0 };
@@ -56,7 +58,7 @@ const GeneralResult = () => {
               voteCount={formatNumber(totalPartysVotes[title])}
             />
           ))
-        : ''}
+        : null}
     </div>
   );
 };
